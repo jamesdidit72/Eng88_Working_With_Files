@@ -47,13 +47,15 @@
 # create a function to called open_with_to_write_to_file write/add/append
 # display the data with the added data - item names - pizza, cake, avacado, biryani, pasta
 
-def open_with_to_write_to_file(file):
+def open_with_to_write_to_file(file, item_list):
     try:
         with open('order.txt', 'a') as file:  # 'a' = append
-            file.write('\nPizza\nCake\nAvocado\nBiryani\nPasta')
+            for item in item_list:
+                file.write('\n' + item)
     except FileNotFoundError as errmsg:
         print('Sorry, file not found: ' + str(errmsg))
     finally:
         return 'Thank you for visiting'  # return removes the 'none' message
 
-open_with_to_write_to_file('order.txt')
+add_to_file = ['Pizza','Cake','Avocado','Biryani','Pasta']
+open_with_to_write_to_file('order.txt', add_to_file)
