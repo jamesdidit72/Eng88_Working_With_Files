@@ -62,3 +62,21 @@ def open_with_to_write_to_file(file):
 
 open_with_to_write_to_file('order.txt')
 ```
+#### Uses 'a' from the table for adding to the file
+### Iteration 2
+- added list
+```python
+def open_with_to_write_to_file(file, item_list):
+    try:
+        with open('order.txt', 'a') as file:  # 'a' = append
+            for item in item_list:
+                file.write('\n' + item)
+    except FileNotFoundError as errmsg:
+        print('Sorry, file not found: ' + str(errmsg))
+    finally:
+        return 'Thank you for visiting'  # return removes the 'none' message
+
+add_to_file = ['Pizza','Cake','Avocado','Biryani','Pasta']
+open_with_to_write_to_file('order.txt', add_to_file)
+
+```
