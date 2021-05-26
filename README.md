@@ -44,3 +44,21 @@ except FileNotFoundError as errmsg:
 |'t' |This is the default mode. It opens in text mode.|
 |'b' |This opens in binary mode.
 |'+' |This will open a file for reading and writing (updating)|
+
+## Task 1
+### Writing to a file
+```python
+# create a function to called open_with_to_write_to_file write/add/append
+# display the data with the added data - item names - pizza, cake, avacado, biryani, pasta
+
+def open_with_to_write_to_file(file):
+    try:
+        with open('order.txt', 'a') as file:  # 'a' = append
+            file.write('\nPizza\nCake\nAvocado\nBiryani\nPasta')
+    except FileNotFoundError as errmsg:
+        print('Sorry, file not found: ' + str(errmsg))
+    finally:
+        return 'Thank you for visiting'  # return removes the 'none' message
+
+open_with_to_write_to_file('order.txt')
+```
